@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Lab1 {
     public static int computeSum(int n) {
@@ -26,7 +28,7 @@ public class Lab1 {
     public static void main(String[] args) {
         // Valid arg
         if (args.length != 3) {
-            System.out.println("Usage: java Lab1 a b k");
+            System.out.println("java Lab1 a b k");
             return;
         }
 
@@ -65,9 +67,27 @@ public class Lab1 {
 
     public class WheelGraph {
         public static int[][] createAdjacencyMatrix(int n) {
-            int[][] adjacencyMatrix = new int[n][n];
-            // TO DO 
-            return adjacencyMatrix;
+            int[][] matrix = new int[n][n];
+
+        // Fill the diagonal with 0s (no self-loops)
+        for (int i = 0; i < n; i++) {
+            matrix[i][i] = 0;
         }
+
+        // Fill the edges between the cycle
+        for (int i = 0; i < n - 1; i++) {
+            matrix[i][i + 1] = 1;
+            matrix[i + 1][i] = 1;
+        }
+        matrix[0][n - 1] = 1;
+        matrix[n - 1][0] = 1;
+
+        // Fill the edges from the hub to the cycle
+        for (int i = 0; i < n; i++) {
+            matrix[i][n - 1] = 1;
+            matrix[n - 1][i] = 1;
+        }
+       return matrix;
     }
+}
 }
