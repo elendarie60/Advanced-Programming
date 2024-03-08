@@ -1,14 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
+
+enum ClientType{ REGULAR, PREMIUM}
+
 class Client {
     private String name;
     private ClientType type;
-    private int arrivalTimeStart;
-    private int arrivalTimeEnd;
+    private int timeStart;
+    private int timeEnd;
 
-    public Client(String name, ClientType type, int arrivalTimeStart, int arrivalTimeEnd) {
+    public Client(String name, ClientType type, int timeStart, int timeEnd) {
         this.name = name;
         this.type = type;
-        this.arrivalTimeStart = arrivalTimeStart;
-        this.arrivalTimeEnd = arrivalTimeEnd;
+        this.timeStart = timeStart;
+        this.timeEnd = timeEnd;
     }
 
     public String getName() {
@@ -27,20 +32,20 @@ class Client {
         this.type = type;
     }
 
-    public int getArrivalTimeStart() {
-        return arrivalTimeStart;
+    public int timeStart() {
+        return timeStart;
     }
 
-    public void setArrivalTimeStart(int arrivalTimeStart) {
-        this.arrivalTimeStart = arrivalTimeStart;
+    public void setTimeStart(int timeStart) {
+        this.timeStart = timeStart;
     }
 
-    public int getArrivalTimeEnd() {
-        return arrivalTimeEnd;
+    public int getTimeEnd() {
+        return timeEnd;
     }
 
-    public void setArrivalTimeEnd(int arrivalTimeEnd) {
-        this.arrivalTimeEnd = arrivalTimeEnd;
+    public void setTimeEnd(int timeEnd) {
+        this.timeEnd = timeEnd;
     }
 
     public boolean equals(Object obj) {
@@ -52,13 +57,12 @@ class Client {
         return name.equals(client.name);
     }
 
-
     public String toString() {
-        return "Client{" + "name='" + name + '\'' + ", type=" + type + ", arrivalTimeStart=" + arrivalTimeStart +
-                ", arrivalTimeEnd=" + arrivalTimeEnd + '}';
+        return "Client{" +
+                "name='" + name + '\'' +
+                ", timeStart =" + timeStart +
+                ", timeEnd =" + timeEnd +
+                ", type=" + type +
+                '}';
     }
-}
-
-enum ClientType {
-    REGULAR, PREMIUM
 }
