@@ -1,5 +1,8 @@
+import java.lang.NullPointerException;
+
 public class Main {
     public static void main(String[] args) {
+        
        //create depots,trucks,drones
         Depot depot1 = new Depot("Depot A");
         Depot depot2 = new Depot("Depot B");
