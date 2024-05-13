@@ -1,4 +1,0 @@
-CREATE TABLE publishers (
-    publisher_id SERIAL PRIMARY KEY,
-    publisher_name VARCHAR(255) NOT NULL
-);
